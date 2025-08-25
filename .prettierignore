@@ -1,0 +1,17 @@
+node_modules
+dist
+coverage
+.tmp
+.tmp-ng
+.angular
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# IDE stuff
+.vscode
+.idea
+
+# Generated assets
+**/*.min.js
+**/*.min.css
