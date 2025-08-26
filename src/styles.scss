@@ -68,11 +68,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .nc-logo {
   display: block;
   height: 22px;
   width: auto;
 }
+
 @media (min-width: 768px) {
   .nc-logo {
     height: 24px;
@@ -86,6 +88,7 @@ body {
   overflow-x: hidden;
   background-color: var(--nc-bg);
 }
+
 .app-main {
   flex: 1 1 auto;
   display: flex;
@@ -100,6 +103,7 @@ body {
   padding-block: 16px;
   overflow: hidden; /* avoid accidental scrollbars */
 }
+
 .stage-inner {
   width: 100%;
 }
@@ -125,7 +129,7 @@ body {
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings:
     'tnum' 1,
-    'lnum' 1;
+    /* tnum prevents jitter when numbers change. */ 'lnum' 1; /* lnum keeps numbers visually consistent (like on a digital display). */
 }
 
 /* --------- Quote --------- */
@@ -140,6 +144,7 @@ body {
 .inputs-block {
   margin-top: 28px;
 }
+
 @media (min-width: 768px) {
   .inputs-block {
     margin-top: 36px;
@@ -158,6 +163,7 @@ body {
   width: var(--nc-input-w-sm);
   max-width: 100%;
 }
+
 @media (min-width: 768px) {
   .nc-field {
     width: var(--nc-input-w-md);
@@ -180,11 +186,13 @@ body {
     border-color 0.12s ease,
     box-shadow 0.12s ease;
 }
+
 .nc-input:focus {
   background: var(--nc-bg);
   border-color: var(--nc-focus-border);
   box-shadow: 0 0 0 3px var(--nc-focus-ring);
 }
+
 .nc-input::placeholder {
   color: var(--nc-placeholder);
 }
@@ -206,7 +214,7 @@ body {
 /* Floating label chip */
 .nc-label {
   position: absolute;
-  top: -0.6rem;
+  top: -0.5rem;
   left: 12px;
   padding: 0 8px;
   background: var(--nc-bg);
@@ -246,9 +254,20 @@ body {
     transform 0.06s ease;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
+
 @media (min-width: 768px) {
   .nc-cta {
     width: var(--nc-input-w-md);
+  }
+}
+
+.countdown-line {
+  transition: font-size 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-line {
+    transition: none;
   }
 }
 
@@ -256,13 +275,16 @@ body {
   filter: brightness(0.92);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
+
 .nc-cta:active {
   transform: translateY(1px) scale(0.99);
 }
+
 .nc-cta:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px var(--nc-focus-ring);
 }
+
 .nc-cta:disabled {
   opacity: 0.6;
   cursor: not-allowed;

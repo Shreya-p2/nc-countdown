@@ -12,8 +12,8 @@
     </div>
   </header>
 
-  <main class="app-main mt-3">
-    <section class="stage container-fluid mt-5 px-0">
+  <main class="app-main">
+    <section class="stage container-fluid px-0">
       <div class="stage-inner screen-pad pt-0">
         <!-- Title -->
         <span
@@ -117,7 +117,9 @@
                   (ngModelChange)="formDate.set($event)"
                   required
                   #dateCtrl="ngModel"
-                  [attr.aria-describedby]="pastWarning() ? 'date-warn' : null"
+                  [attr.aria-describedby]="
+                    pastWarning() ? 'date-warn date-hint' : 'date-hint'
+                  "
                   [attr.aria-invalid]="pastWarning() ? 'true' : null"
                 />
               </div>

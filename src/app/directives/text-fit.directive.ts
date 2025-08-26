@@ -26,6 +26,7 @@ export class TextFitDirective implements AfterViewInit, OnDestroy {
   private meas!: HTMLSpanElement
   private scheduled = false
   private inited = false
+  private lastBest = 0
 
   constructor(
     private el: ElementRef<HTMLElement>,
@@ -134,7 +135,11 @@ export class TextFitDirective implements AfterViewInit, OnDestroy {
       }
     }
 
-    host.style.fontSize = best + 'px'
+    // Apply font-size only if difference is big enough to matter (avoid 1px jitter)
+    if (Math.abs(best - this.lastBest) > 2) {
+      host.style.fontSize = best + 'px'
+      this.lastBest = best
+    }
   }
 
   ngOnDestroy(): void {

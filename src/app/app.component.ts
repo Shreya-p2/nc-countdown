@@ -13,7 +13,7 @@ import {
 import { FormsModule } from '@angular/forms'
 import { TextFitDirective } from './directives/text-fit.directive'
 import type { CountdownSettings as AppSettings } from './types' // { eventName: string; endIso: string }
-import { StorageService } from './services/storage.service' // <-- added
+import { StorageService } from './services/storage.service'
 
 // ---------- utils ----------
 function localIsoToMs(iso: string): number {
